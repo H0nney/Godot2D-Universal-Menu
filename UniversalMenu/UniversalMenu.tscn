@@ -1,0 +1,220 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://UniversalMenu/Themes/MenuTheme.tres" type="Theme" id=1]
+[ext_resource path="res://UniversalMenu/Fonts/ButtonFont.tres" type="DynamicFont" id=2]
+[ext_resource path="res://UniversalMenu/Fonts/DefaultFont.tres" type="DynamicFont" id=3]
+[ext_resource path="res://UniversalMenu/Menu.gd" type="Script" id=4]
+[ext_resource path="res://UniversalMenu/Textures/Background.png" type="Texture" id=5]
+[ext_resource path="res://UniversalMenu/Fonts/LogoFont.tres" type="DynamicFont" id=6]
+[ext_resource path="res://UniversalMenu/Fonts/Heading.tres" type="DynamicFont" id=7]
+[ext_resource path="res://UniversalMenu/Audio/BackgroundMusic.mp3" type="AudioStream" id=8]
+
+[node name="Canvas" type="CanvasLayer"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 5 )
+expand = true
+
+[node name="Menu" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 4 )
+
+[node name="MainPanel" type="Panel" parent="Menu"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -160.0
+margin_top = -300.0
+margin_right = 160.0
+margin_bottom = 300.0
+rect_min_size = Vector2( 320, 0 )
+theme = ExtResource( 1 )
+
+[node name="Main" type="VBoxContainer" parent="Menu/MainPanel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -145.0
+margin_top = -118.0
+margin_right = 145.0
+margin_bottom = 110.0
+rect_min_size = Vector2( 290, 0 )
+custom_constants/separation = 0
+
+[node name="StartButton" type="Button" parent="Menu/MainPanel/Main"]
+margin_right = 290.0
+margin_bottom = 76.0
+theme = ExtResource( 1 )
+custom_fonts/font = ExtResource( 2 )
+text = "PLAY"
+flat = true
+
+[node name="OptionsButton" type="Button" parent="Menu/MainPanel/Main"]
+margin_top = 76.0
+margin_right = 290.0
+margin_bottom = 152.0
+theme = ExtResource( 1 )
+custom_fonts/font = ExtResource( 2 )
+text = "Options"
+flat = true
+
+[node name="QuitButton" type="Button" parent="Menu/MainPanel/Main"]
+margin_top = 152.0
+margin_right = 290.0
+margin_bottom = 228.0
+theme = ExtResource( 1 )
+custom_fonts/font = ExtResource( 2 )
+text = "Quit"
+flat = true
+
+[node name="OptionsPanel" type="Panel" parent="Menu"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -160.0
+margin_top = -300.0
+margin_right = 160.0
+margin_bottom = 300.0
+rect_min_size = Vector2( 320, 0 )
+theme = ExtResource( 1 )
+
+[node name="Options" type="VBoxContainer" parent="Menu/OptionsPanel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -145.0
+margin_top = -97.5
+margin_right = 150.0
+margin_bottom = 113.5
+rect_min_size = Vector2( 295, 0 )
+custom_constants/separation = 8
+
+[node name="CatLabel" type="Label" parent="Menu/OptionsPanel/Options"]
+margin_right = 295.0
+margin_bottom = 31.0
+rect_min_size = Vector2( 290, 0 )
+custom_fonts/font = ExtResource( 7 )
+text = "SOUND"
+
+[node name="MasterHbox" type="HBoxContainer" parent="Menu/OptionsPanel/Options"]
+margin_top = 39.0
+margin_right = 295.0
+margin_bottom = 63.0
+rect_min_size = Vector2( 290, 0 )
+custom_constants/separation = 24
+
+[node name="MasterLabel" type="Label" parent="Menu/OptionsPanel/Options/MasterHbox"]
+margin_right = 100.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 100, 0 )
+theme = ExtResource( 1 )
+custom_fonts/font = ExtResource( 3 )
+text = "MASTER"
+
+[node name="SoundMasterSlider" type="HSlider" parent="Menu/OptionsPanel/Options/MasterHbox"]
+margin_left = 124.0
+margin_right = 295.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+min_value = -72.0
+max_value = 0.0
+
+[node name="SFXHbox" type="HBoxContainer" parent="Menu/OptionsPanel/Options"]
+margin_top = 71.0
+margin_right = 295.0
+margin_bottom = 95.0
+rect_min_size = Vector2( 290, 0 )
+custom_constants/separation = 24
+
+[node name="SFXLabel" type="Label" parent="Menu/OptionsPanel/Options/SFXHbox"]
+margin_right = 100.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 100, 0 )
+theme = ExtResource( 1 )
+custom_fonts/font = ExtResource( 3 )
+text = "SFX"
+
+[node name="SFXSlider" type="HSlider" parent="Menu/OptionsPanel/Options/SFXHbox"]
+margin_left = 124.0
+margin_right = 295.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+min_value = -60.0
+max_value = 0.0
+
+[node name="MusicHbox" type="HBoxContainer" parent="Menu/OptionsPanel/Options"]
+margin_top = 103.0
+margin_right = 295.0
+margin_bottom = 127.0
+rect_min_size = Vector2( 290, 0 )
+custom_constants/separation = 24
+
+[node name="MusicLabel" type="Label" parent="Menu/OptionsPanel/Options/MusicHbox"]
+margin_right = 100.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 100, 0 )
+theme = ExtResource( 1 )
+custom_fonts/font = ExtResource( 3 )
+text = "MUSIC"
+
+[node name="MusicSlider" type="HSlider" parent="Menu/OptionsPanel/Options/MusicHbox"]
+margin_left = 124.0
+margin_right = 295.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+min_value = -60.0
+max_value = 0.0
+
+[node name="BackButton" type="Button" parent="Menu/OptionsPanel/Options"]
+margin_top = 135.0
+margin_right = 295.0
+margin_bottom = 211.0
+theme = ExtResource( 1 )
+custom_fonts/font = ExtResource( 2 )
+text = "BACK"
+flat = true
+
+[node name="Title" type="Label" parent="Menu"]
+anchor_right = 1.0
+margin_bottom = 21.0
+theme = ExtResource( 1 )
+custom_fonts/font = ExtResource( 6 )
+text = "GAME NAME"
+align = 1
+valign = 1
+
+[node name="Credit" type="Label" parent="Menu"]
+anchor_top = 0.955
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -36.0
+margin_bottom = -15.0
+theme = ExtResource( 1 )
+custom_fonts/font = ExtResource( 3 )
+text = "A menu by HNYDEV"
+align = 1
+valign = 2
+
+[node name="MenuMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+volume_db = -12.0
+autoplay = true
+
+[connection signal="pressed" from="Menu/MainPanel/Main/StartButton" to="Menu" method="_on_StartButton_pressed"]
+[connection signal="pressed" from="Menu/MainPanel/Main/OptionsButton" to="Menu" method="_on_OptionsButton_pressed"]
+[connection signal="pressed" from="Menu/MainPanel/Main/QuitButton" to="Menu" method="_on_QuitButton_pressed"]
+[connection signal="value_changed" from="Menu/OptionsPanel/Options/MasterHbox/SoundMasterSlider" to="Menu" method="_on_SoundMasterSlider_value_changed"]
+[connection signal="value_changed" from="Menu/OptionsPanel/Options/SFXHbox/SFXSlider" to="Menu" method="_on_SFXSlider_value_changed"]
+[connection signal="value_changed" from="Menu/OptionsPanel/Options/MusicHbox/MusicSlider" to="Menu" method="_on_MusicSlider_value_changed"]
+[connection signal="pressed" from="Menu/OptionsPanel/Options/BackButton" to="Menu" method="_on_BackButton_pressed"]
