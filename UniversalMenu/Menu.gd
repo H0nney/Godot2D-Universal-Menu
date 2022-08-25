@@ -1,6 +1,6 @@
 extends Control
 
-export(PackedScene) var startScene
+export(String, FILE, "*.tscnb") var startScene
 
 onready var mainMenu = get_node("MainPanel")
 onready var optionsMenu = get_node("OptionsPanel")
