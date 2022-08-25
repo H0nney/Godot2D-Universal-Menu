@@ -9,5 +9,4 @@ Muzyka w tle: https://www.youtube.com/watch?v=c1GglND_Gho
 
 Grafika w tle: https://pixabay.com/pl/illustrations/t%c5%82o-tapeta-niski-poli-wibruj%c4%85cy-4232859/
 
-
-Poradnik wideo w drodze :)
+[![Watch the video](https://img.youtube.com/vi/Bk7TUBboyGc/maxresdefault.jpg)](https://www.youtube.com/watch?v=Bk7TUBboyGc)
